@@ -23,3 +23,16 @@ go.work.sum
 
 # env file
 .env
+
+.idea/
+.vscode/
+
+node_modules
+
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

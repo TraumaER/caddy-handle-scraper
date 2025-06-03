@@ -1,0 +1,23 @@
+{
+  "name": "caddy-handle-scraper-client",
+  "version": "0.1.0",
+  "description": "Scrape containers for service details based on docker labels",
+  "main": "index.ts",
+  "scripts": {
+    "start": "tsx ./index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TraumaER/caddy-handle-scraper.git"
+  },
+  "dependencies": {
+    "dockerode": "^4.0.6"
+  },
+  "private": true,
+  "devDependencies": {
+    "@types/dockerode": "^3.3.39",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "caddy-handle-scraper-server",
+  "version": "0.1.0",
+  "description": "Receiving server for caddy-handle-scraper-client",
+  "main": "index.ts",
+  "scripts": {
+    "start": "tsx ./index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TraumaER/caddy-handle-scraper.git"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0"
+  },
+  "private": true,
+  "devDependencies": {
+    "@types/body-parser": "^1.19.5",
+    "@types/express": "^5.0.2",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}
