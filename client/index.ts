@@ -1,6 +1,8 @@
 import Docker from 'dockerode';
 import net from 'net';
 
+import { ServicesRequest } from '../types';
+
 const main = async () => {
   const docker = new Docker();
   const serverURL = process.env.CHS_SERVER_URL;
@@ -15,26 +17,29 @@ const main = async () => {
     },
   });
 
-  const payload = containersWithLabel.map((container) => {
-    return {
-      subdomain: container.Labels[subdomainLabel],
-      port: container.Labels[subdomainPortLabel]
-        ? Number(container.Labels[subdomainPortLabel])
-        : container.Ports.filter((port) => net.isIPv4(port.IP))[0].PublicPort,
-    };
-  });
+  const payload: ServicesRequest = {
+    host_ip: process.env.CHS_HOST_IP ?? '127.0.0.1',
+    services: containersWithLabel.map((container) => {
+      return {
+        port: container.Labels[subdomainPortLabel]
+          ? Number(container.Labels[subdomainPortLabel])
+          : container.Ports.filter((port) => net.isIPv4(port.IP))[0].PublicPort,
+        subdomain: container.Labels[subdomainLabel],
+      };
+    }),
+  };
 
   try {
     if (!serverURL) {
       throw new Error('Server URL is not defined');
     }
     const response = await fetch(`${serverURL}/services`, {
-      method: 'POST',
+      body: JSON.stringify(payload),
       headers: {
         'Content-Type': 'application/json',
         'X-Handshake-Key': process.env.CHS_HANDSHAKE_KEY || '',
       },
-      body: JSON.stringify(payload),
+      method: 'POST',
     });
 
     if (!response.ok) {

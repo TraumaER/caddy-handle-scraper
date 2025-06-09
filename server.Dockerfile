@@ -9,6 +9,7 @@ COPY .yarn/ ./.yarn/
 COPY .yarnrc.yml ./
 COPY yarn.lock ./
 
+COPY types/ ./types/
 COPY server/ ./server/
 
 RUN yarn install
