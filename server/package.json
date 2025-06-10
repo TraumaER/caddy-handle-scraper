@@ -15,7 +15,8 @@
     "better-sqlite3": "^11.10.0",
     "body-parser": "^2.2.0",
     "express": "^5.1.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "mkdirp": "^3.0.1"
   },
   "private": true,
   "devDependencies": {
