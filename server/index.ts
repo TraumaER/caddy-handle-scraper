@@ -22,7 +22,7 @@ const app = express();
  * Server port from environment variable or default
  * @type {string}
  */
-const port = process.env.PORT ?? '3030';
+const port = process.env.CHS_PORT ?? '3030';
 /**
  * Handshake key for authentication from environment variable
  * @type {string|undefined}
@@ -30,14 +30,14 @@ const port = process.env.PORT ?? '3030';
 const handshakeKey = process.env.CHS_HANDSHAKE_KEY;
 
 // Create necessary directories
-mkdirp.sync(path.resolve('/data', 'shared', 'handlers'));
-mkdirp.sync(path.resolve('/data', 'private'));
+mkdirp.sync(path.resolve('/data', 'chs', 'shared', 'handlers'));
+mkdirp.sync(path.resolve('/data', 'chs', 'private'));
 
 /**
  * SQLite database connection
  * @type {Database}
  */
-const db = new Database(path.resolve('/data', 'private', 'db.sqlite3'));
+const db = new Database(path.resolve('/data', 'chs', 'private', 'db.sqlite3'));
 
 // Create services table if it doesn't exist
 db.exec(`
@@ -301,6 +301,7 @@ const writeHandlerFiles = () => {
     writeFileSync(
       path.resolve(
         '/data',
+        'chs',
         'shared',
         'handlers',
         `chs_${hostIp.replace(/\./g, '_')}`
