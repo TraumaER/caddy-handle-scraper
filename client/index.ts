@@ -55,7 +55,10 @@ let intervalId: NodeJS.Timeout;
 const startInterval = () => {
   console.log('Starting container monitoring...');
   main();
-  intervalId = setInterval(main, 30000);
+  intervalId = setInterval(
+    main,
+    Number(process.env.CHS_POLL_INTERVAL ?? 60_000)
+  );
 };
 
 const cleanup = () => {
