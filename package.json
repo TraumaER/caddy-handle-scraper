@@ -7,7 +7,9 @@
     "server:start": "yarn workspace caddy-handle-scraper-server run start",
     "handshake": "node ./handshake-generator.js",
     "format": "yarn prettier -w .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "yarn workspaces foreach --all run test",
+    "test:client": "yarn workspace caddy-handle-scraper-client run test",
+    "test:server": "yarn workspace caddy-handle-scraper-server run test"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,7 @@
   "devDependencies": {
     "@eslint/js": "^9.28.0",
     "@eslint/markdown": "^6.5.0",
+    "@types/node": "^22.10.5",
     "eslint": "^9.28.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-sort": "^4.0.0",
@@ -30,6 +33,7 @@
     "prettier": "^3.5.3",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.34.0"
+    "typescript-eslint": "^8.34.0",
+    "vitest": "^3.0.7"
   }
 }
