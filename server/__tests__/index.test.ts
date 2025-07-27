@@ -2,7 +2,7 @@ import Database from 'better-sqlite3';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // Mock the app module
-vi.mock('./app');
+vi.mock('../app');
 
 const originalEnv = process.env;
 
@@ -21,7 +21,7 @@ beforeEach(async () => {
     }),
   };
 
-  const { createApp } = await import('./app');
+  const { createApp } = await import('../app');
   vi.mocked(createApp).mockReturnValue({
     app: mockApp,
     db: {} as Database,
@@ -39,14 +39,14 @@ afterEach(() => {
 describe('Server Index Module', () => {
   describe('App configuration', () => {
     it('should mock createApp function', async () => {
-      const { createApp } = await import('./app');
+      const { createApp } = await import('../app');
       
       expect(createApp).toBeDefined();
       expect(vi.isMockFunction(createApp)).toBe(true);
     });
 
     it('should return mocked app instance', async () => {
-      const { createApp } = await import('./app');
+      const { createApp } = await import('../app');
       
       const result = createApp('test-key');
       expect(result).toHaveProperty('app');

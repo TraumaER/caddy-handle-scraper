@@ -4,8 +4,7 @@
   "description": "Receiving server for caddy-handle-scraper-client",
   "main": "index.ts",
   "scripts": {
-    "start": "tsx ./index.ts",
-    "test": "vitest run"
+    "start": "tsx ./index.ts"
   },
   "repository": {
     "type": "git",

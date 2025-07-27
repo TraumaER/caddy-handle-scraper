@@ -7,7 +7,7 @@ import {
   ContainerClient,
   createClientConfig,
   setupSignalHandlers,
-} from './client';
+} from '../client';
 
 // Mock dependencies
 vi.mock('dockerode');

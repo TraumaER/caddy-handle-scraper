@@ -123,19 +123,19 @@ docker-compose -f docker-compose.dev.yml logs -f
 ```
 caddy-handle-scraper/
 ├── client/                 # Client application
+│   ├── __tests__/          # Client tests
+│   │   ├── client.test.ts  # Core client tests
+│   │   └── index.test.ts   # Integration tests
 │   ├── client.ts          # Core client logic
-│   ├── client.test.ts     # Client tests
 │   ├── index.ts           # Client entry point
-│   ├── index.test.ts      # Integration tests
-│   ├── package.json       # Client dependencies
-│   └── vitest.config.ts   # Test configuration
+│   └── package.json       # Client dependencies
 ├── server/                 # Server application
+│   ├── __tests__/          # Server tests
+│   │   ├── app.test.ts     # Express app tests
+│   │   └── index.test.ts   # Integration tests
 │   ├── app.ts             # Express app setup
-│   ├── app.test.ts        # Server tests
 │   ├── index.ts           # Server entry point
-│   ├── index.test.ts      # Integration tests
 │   ├── package.json       # Server dependencies
-│   ├── vitest.config.ts   # Test configuration
 │   └── vitest.setup.ts    # Test setup
 ├── types/                  # Shared TypeScript types
 │   └── index.ts           # Type definitions
@@ -146,6 +146,7 @@ caddy-handle-scraper/
 ├── eslint.config.mjs      # ESLint configuration
 ├── prettier.config.js     # Prettier configuration
 ├── tsconfig.json          # TypeScript configuration
+├── vitest.config.ts       # Centralized test configuration
 ├── client.Dockerfile      # Client Docker image
 ├── server.Dockerfile      # Server Docker image
 ├── docker-compose.yml     # Production compose
@@ -220,6 +221,8 @@ We use **Vitest** for testing with comprehensive mocking:
 - Unit tests for individual functions
 - Integration tests for API endpoints
 - Mocked external dependencies (Docker, filesystem, database)
+- **Test files are placed in `__tests__/` folders adjacent to the code they test**
+- **Centralized Vitest configuration** at the root level for consistency across workspaces
 
 ### Test Structure
 

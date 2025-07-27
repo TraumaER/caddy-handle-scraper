@@ -4,8 +4,7 @@
   "description": "Scrape containers for service details based on docker labels",
   "main": "index.ts",
   "scripts": {
-    "start": "tsx ./index.ts",
-    "test": "vitest run"
+    "start": "tsx ./index.ts"
   },
   "repository": {
     "type": "git",

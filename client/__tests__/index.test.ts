@@ -1,9 +1,9 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { ContainerClient } from './client';
+import { ContainerClient } from '../client';
 
 // Mock the client module
-vi.mock('./client');
+vi.mock('../client');
 
 // Mock process.exit to prevent actual exit during tests
 // const mockExit = vi.spyOn(process, 'exit').mockImplementation(() => {
@@ -32,7 +32,7 @@ describe('Client Index Module', () => {
       startMonitoring: vi.fn(),
     };
 
-    const { ContainerClient, createClientConfig, setupSignalHandlers } = vi.mocked(await import('./client'));
+    const { ContainerClient, createClientConfig, setupSignalHandlers } = vi.mocked(await import('../client'));
     vi.mocked(createClientConfig).mockReturnValue({
       handshakeKey: 'test-key-123',
       hostIP: '192.168.1.100',
@@ -52,7 +52,7 @@ describe('Client Index Module', () => {
 
   describe('Configuration', () => {
     it('should have correct mock configuration', async () => {
-      const { createClientConfig } = vi.mocked(await import('./client'));
+      const { createClientConfig } = vi.mocked(await import('../client'));
       
       // Verify mock returns correct config
       const config = createClientConfig();
@@ -67,7 +67,7 @@ describe('Client Index Module', () => {
     });
 
     it('should mock ContainerClient constructor', async () => {
-      const { ContainerClient } = vi.mocked(await import('./client'));
+      const { ContainerClient } = vi.mocked(await import('../client'));
       
       // Verify ContainerClient is mocked
       expect(ContainerClient).toBeDefined();
@@ -75,7 +75,7 @@ describe('Client Index Module', () => {
     });
 
     it('should mock setupSignalHandlers', async () => {
-      const { setupSignalHandlers } = vi.mocked(await import('./client'));
+      const { setupSignalHandlers } = vi.mocked(await import('../client'));
       
       // Verify setupSignalHandlers is mocked
       expect(setupSignalHandlers).toBeDefined();

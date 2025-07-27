@@ -6,7 +6,7 @@ import { existsSync, mkdirSync, rmSync } from 'node:fs';
 import supertest from 'supertest';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { createApp } from './app';
+import { createApp } from '../app';
 
 // Mock dependencies
 vi.mock('better-sqlite3');

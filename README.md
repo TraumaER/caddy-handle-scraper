@@ -304,16 +304,24 @@ yarn format
 ### Project Structure
 
 ```
-├── client/           # Client application
-│   ├── client.ts     # Core client logic
-│   ├── index.ts      # Entry point
-│   └── *.test.ts     # Tests
-├── server/           # Server application
-│   ├── app.ts        # Express app setup
-│   ├── index.ts      # Entry point
-│   └── *.test.ts     # Tests
-├── types/            # Shared TypeScript types
-└── docs/             # Documentation
+├── client/               # Client application
+│   ├── __tests__/        # Client tests
+│   │   ├── client.test.ts
+│   │   └── index.test.ts
+│   ├── client.ts         # Core client logic
+│   ├── index.ts          # Entry point
+│   └── package.json      # Client dependencies
+├── server/               # Server application
+│   ├── __tests__/        # Server tests
+│   │   ├── app.test.ts
+│   │   └── index.test.ts
+│   ├── app.ts            # Express app setup
+│   ├── index.ts          # Entry point
+│   ├── package.json      # Server dependencies
+│   └── vitest.setup.ts   # Test setup
+├── types/                # Shared TypeScript types
+├── vitest.config.ts      # Centralized test configuration
+└── docs/                 # Documentation
 ```
 
 ### Testing

@@ -36,6 +36,8 @@ This is a TypeScript monorepo that automates creation of subdomain handlers for 
 
 ### Testing
 - Tests use Vitest framework with comprehensive mocking
+- Test files are located in `__tests__/` folders adjacent to the code they test
+- Centralized Vitest configuration at root level (`vitest.config.ts`)
 - Run all tests: `yarn test`
 - Run client tests only: `yarn test:client`
 - Run server tests only: `yarn test:server`
