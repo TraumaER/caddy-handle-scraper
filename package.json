@@ -1,0 +1,39 @@
+{
+  "name": "caddy-handle-scraper",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "client:start": "yarn workspace caddy-handle-scraper-client run start",
+    "server:start": "yarn workspace caddy-handle-scraper-server run start",
+    "handshake": "node ./handshake-generator.js",
+    "format": "yarn prettier -w .",
+    "test": "vitest run",
+    "test:client": "vitest run client",
+    "test:server": "vitest run server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TraumaER/caddy-handle-scraper.git"
+  },
+  "private": true,
+  "workspaces": [
+    "./client",
+    "./server"
+  ],
+  "type": "module",
+  "packageManager": "yarn@4.9.1",
+  "devDependencies": {
+    "@eslint/js": "^9.28.0",
+    "@eslint/markdown": "^6.5.0",
+    "@types/node": "^22.10.5",
+    "eslint": "^9.28.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-sort": "^4.0.0",
+    "globals": "^16.2.0",
+    "prettier": "^3.5.3",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.34.0",
+    "vitest": "^3.0.7"
+  }
+}

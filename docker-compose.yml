@@ -1,0 +1,43 @@
+services:
+  test1:
+    image: busybox
+    container_name: label_test_1
+    labels:
+      app.service: "service_label1"
+    ports:
+      - "9001:80"
+    command:
+      - sleep
+      - infinity
+  test2:
+    image: busybox
+    container_name: label_test_2
+    labels:
+      app.subdomain: "test2"
+    ports:
+      - "9002:80"
+    command:
+      - sleep
+      - infinity
+  test3:
+    image: busybox
+    container_name: label_test_3
+    labels:
+      app.service: "service_label2"
+      app.service.port: 9013
+    ports:
+      - "9003:80"
+      - "9013:81"
+    command:
+      - sleep
+      - infinity
+  test4:
+    image: busybox
+    container_name: label_test_4
+    labels:
+      app.subdomain: "test4"
+    ports:
+      - "9004:80"
+    command:
+      - sleep
+      - infinity
