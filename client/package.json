@@ -4,8 +4,7 @@
   "description": "Scrape containers for service details based on docker labels",
   "main": "index.ts",
   "scripts": {
-    "start": "tsx ./index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsx ./index.ts"
   },
   "repository": {
     "type": "git",
@@ -18,6 +17,7 @@
   "devDependencies": {
     "@types/dockerode": "^3.3.39",
     "tsx": "^4.19.4",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vitest": "^3.0.7"
   }
 }
